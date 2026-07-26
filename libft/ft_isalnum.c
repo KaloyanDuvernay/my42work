@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 18:15:21 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 14:39:40 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 13:24:59 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 13:26:24 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_isalnum(int c)
 {
-	char	*dest_ptr;
-	char	*src_ptr;
-
-	if (n == 0)
-		return (dest);
-	dest_ptr = (char *) dest;
-	src_ptr = (char *) src;
-	if (dest_ptr < src_ptr)
-	{
-		while (n--)
-		{
-			*dest_ptr++ = *src_ptr++;
-		}
-	}
-	else
-	{
-		dest_ptr += (n - 1);
-		src_ptr += (n - 1);
-		while (n--)
-		{
-			*dest_ptr-- = *src_ptr--;
-		}
-	}
-	return (dest);
+	return (ft_isdigit(c) || ft_isalpha(c));
 }

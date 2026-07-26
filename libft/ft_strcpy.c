@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 18:15:21 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 14:39:40 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 12:27:17 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 12:52:43 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	char	*dest_ptr;
-	char	*src_ptr;
+	char	*start;
 
-	if (n == 0)
-		return (dest);
-	dest_ptr = (char *) dest;
-	src_ptr = (char *) src;
-	if (dest_ptr < src_ptr)
+	start = dest;
+	while (*src)
 	{
-		while (n--)
-		{
-			*dest_ptr++ = *src_ptr++;
-		}
+		*dest++ = *src++;
 	}
-	else
-	{
-		dest_ptr += (n - 1);
-		src_ptr += (n - 1);
-		while (n--)
-		{
-			*dest_ptr-- = *src_ptr--;
-		}
-	}
-	return (dest);
+	*dest = *src;
+	return (start);
 }
