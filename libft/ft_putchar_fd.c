@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intdigittochar.c                                :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/26 21:25:09 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 22:16:20 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 22:02:08 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 22:04:03 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intdigittochar(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= 0 && c <= 9)
-		return (c + '0');
-	return (c);
+	write(fd, &c, 1);
 }

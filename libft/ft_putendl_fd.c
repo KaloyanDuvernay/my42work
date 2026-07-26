@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intdigittochar.c                                :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/26 21:25:09 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 22:16:20 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 22:05:24 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 22:06:05 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intdigittochar(int c)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	if (c >= 0 && c <= 9)
-		return (c + '0');
-	return (c);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

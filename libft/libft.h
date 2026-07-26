@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:06:55 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 21:33:26 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/07/26 22:16:33 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,11 @@ int		ft_isupper(int c);
 int		ft_islower(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+void	ft_putchar(char c);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr(char const *s);
+void	ft_putstr_fd(char const *s, int fd);
+void	ft_putendl(char const *s);
+void	ft_putendl_fd(char const *s, int fd);
 
 #endif //LIBFT_H

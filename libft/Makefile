@@ -6,7 +6,7 @@
 #    By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/25 16:58:09 by kaloyanduve       #+#    #+#              #
-#    Updated: 2026/07/26 18:24:31 by kaloyanduve      ###   ########.fr        #
+#    Updated: 2026/07/26 22:20:57 by kaloyanduve      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ AR = ar rcs
 SRCS = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_chardigittoint.c \
+	   ft_intdigittochar.c \
 	   ft_isalnum.c \
 	   ft_isalpha.c \
 	   ft_isascii.c \
@@ -52,6 +53,7 @@ SRCS = ft_atoi.c \
 	   ft_strcpy.c \
 	   ft_strdel.c \
 	   ft_strdup.c \
+	   ft_strndup.c \
 	   ft_striter.c \
 	   ft_striteri.c \
 	   ft_strjoin.c \
