@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:06:55 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 22:16:33 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/07/26 23:26:25 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@
 # include <stdlib.h>
 # include <string.h>
 
-// defines
+// structs
 
-//#define INTMAX ((long) 2147483647)
-//#define INTMIN ((long) (-INTMAX - 1))
+typedef struct s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}	t_list;
 
 // functions
 
@@ -83,5 +87,15 @@ void	ft_putstr(char const *s);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl(char const *s);
 void	ft_putendl_fd(char const *s, int fd);
+
+// list functions
+
+t_list	*ft_lstnew(void const *content, size_t content_size);
+t_list	*ft_lstgetnextnode(t_list *node);
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstadd(t_list **alst, t_list *new);
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif //LIBFT_H
