@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 17:10:19 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 18:33:04 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 19:48:12 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 19:57:20 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*start;
+	size_t	total_len;
+	char	*dest;
 
-	start = malloc(size);
-	if (start != NULL)
-		ft_bzero(start, size);
-	return (start);
+	total_len = ft_strlen(s1) + ft_strlen(s2);
+	dest = ft_strnew(total_len);
+	if (dest == NULL)
+		return (NULL);
+	ft_strcpy(dest, s1);
+	ft_strcat(dest, s2);
+	return (dest);
 }

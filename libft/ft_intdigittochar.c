@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   intdigittochar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 17:10:19 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 18:33:04 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 21:25:09 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 21:25:44 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+int	ft_intdigittochar(int c)
 {
-	void	*start;
-
-	start = malloc(size);
-	if (start != NULL)
-		ft_bzero(start, size);
-	return (start);
+	if (c >= 0 && c <= 9)
+		return (c + '0');
+	return (c);
 }

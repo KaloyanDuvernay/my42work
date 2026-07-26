@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 17:10:19 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 18:33:04 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 18:52:59 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 19:08:26 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	void	*start;
+	char	*new_str;
+	char	*new_str_start;
 
-	start = malloc(size);
-	if (start != NULL)
-		ft_bzero(start, size);
-	return (start);
+	new_str = ft_strdup(s);
+	new_str_start = new_str;
+	if (new_str != NULL)
+	{
+		while (*new_str)
+		{
+			*new_str = f(*new_str);
+			new_str++;
+		}
+	}
+	return (new_str_start);
 }

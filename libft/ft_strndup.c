@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 17:10:19 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 18:33:04 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/07/26 19:37:41 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/07/26 19:44:32 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strndup(const char *str, size_t n)
 {
-	void	*start;
+	char	*str_ptr;
+	char	*new_str;
+	char	*new_str_start;
+	size_t	length;
 
-	start = malloc(size);
-	if (start != NULL)
-		ft_bzero(start, size);
-	return (start);
+	str_ptr = (char *) str;
+	length = 0;
+	while (*str_ptr && length < n)
+	{
+		str_ptr++;
+		length++;
+	}
+	new_str = malloc(length + 1);
+	if (new_str == NULL)
+		return (NULL);
+	new_str_start = new_str;
+	str_ptr = (char *) str;
+	while (length--)
+		*new_str++ = *str_ptr++;
+	*new_str = '\0';
+	return (new_str_start);
 }

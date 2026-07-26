@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:06:55 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 16:33:33 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/07/26 21:33:26 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,19 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stddef.h>
+# include <string.h>
+
+// defines
+
+//#define INTMAX ((long) 2147483647)
+//#define INTMIN ((long) (-INTMAX - 1))
 
 // functions
+
 int		ft_atoi(const char *str);
+char	*ft_itoa(int n);
 void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -34,15 +42,30 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strequ(char const *s1, char const *s2);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strnew(size_t size);
+void	ft_strdel(char **as);
+void	ft_strclr(char *s);
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strstr(const char *haystack, const char *needle);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strdup(const char *s);
+char	*ft_strndup(const char *str, size_t n);
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strncat(char *dest, const char *src, size_t n);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s);
+char	**ft_strsplit(char const *s, char c);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_chardigittoint(int c);
+int		ft_intdigittochar(int c);
 int		ft_issign(int c);
 int		ft_isspace(int c);
 int		ft_isalpha(int c);
