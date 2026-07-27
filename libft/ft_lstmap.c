@@ -6,45 +6,38 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 23:25:21 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 23:46:09 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/07/27 09:42:10 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	free_content(void *content, size_t size)
+{
+	(void) size;
+	free(content);
+}
+
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*current_node;
 	t_list	*mapped_node;
 	t_list	*start;
-	void	*previous_next_ptr;
+	t_list	**last_next_field;
 
-	current_node = lst;
-	if (current_node != NULL)
+	start = NULL;
+	last_next_field = &start;
+	while (lst)
 	{
-		mapped_node = f(current_node);
-		previous_next_ptr = mapped_node->next;
-		start = mapped_node;
-	}
-	else
-		return NULL;
-	while((current_node = ft_lstgetnextnode(current_node)))
-	{
-		if (current_node != NULL)
+		mapped_node = f(lst);
+		if (mapped_node == NULL)
 		{
-			mapped_node = f(current_node);
-			if (mapped_node == NULL)
-			{
-				ft_lstdel(start, ft_lstdelone);
-				return (NULL);
-			}
-			previous_next_ptr = mapped_node;
-			
+			ft_lstdel(&start, free_content);
+			return (NULL);
 		}
-		else
-		{
-			previous_next_ptr = NULL;
-		}
+		*last_next_field = mapped_node;
+		last_next_field = &(mapped_node->next);
+		lst = ft_lstgetnextnode(lst);
 	}
+	*last_next_field = NULL;
 	return (start);
 }

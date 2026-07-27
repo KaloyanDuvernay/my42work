@@ -6,7 +6,7 @@
 #    By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/25 16:58:09 by kaloyanduve       #+#    #+#              #
-#    Updated: 2026/07/26 22:20:57 by kaloyanduve      ###   ########.fr        #
+#    Updated: 2026/07/27 09:39:59 by kaloyanduve      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,13 @@ SRCS = ft_atoi.c \
 	   ft_strtrim.c \
 	   ft_strequ.c \
 	   ft_tolower.c \
-	   ft_toupper.c
+	   ft_toupper.c \
+	   ft_lstadd.c \
+	   ft_lstdel.c \
+	   ft_lstdelone.c \
+	   ft_lstgetnextnode.c \
+	   ft_lstiter.c \
+	   ft_lstmap.c \
 	   
 
 OBJS = $(SRCS:.c=.o)
@@ -82,16 +88,20 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@echo "libft.a compiled successfully!"
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiling: $<"
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
+	@echo "Object files cleaned"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "libft.a removed"
 
 re: fclean all
 
