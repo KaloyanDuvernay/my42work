@@ -1,0 +1,33 @@
+name: Libft verification
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          python3 -m pip install norminette
+          sudo apt-get update
+          sudo apt-get install -y valgrind clang
+
+      - name: Norminette
+        run: |
+          cd libft
+          norminette *.c *.h
+
+      - name: Build
+        run: make -C libft fclean all
+
+      - name: Tripouille libftTester
+        run: |
+          git clone --depth 1 https://github.com/Tripouille/libftTester.git /tmp/libftTester
+          make -C /tmp/libftTester m LIBFT_PATH="$GITHUB_WORKSPACE/libft"
