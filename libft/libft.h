@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:06:55 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 23:26:25 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/07 22:12:32 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlcpy(char *destination, const char *source, size_t destinationSize);
 int		ft_chardigittoint(int c);
 int		ft_intdigittochar(int c);
 int		ft_issign(int c);

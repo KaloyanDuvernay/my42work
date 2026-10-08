@@ -6,7 +6,7 @@
 #    By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/25 16:58:09 by kaloyanduve       #+#    #+#              #
-#    Updated: 2026/07/27 09:39:59 by kaloyanduve      ###   ########.fr        #
+#    Updated: 2026/10/07 22:17:08 by kaloyanduve      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ SRCS = ft_atoi.c \
 	   ft_strncat.c \
 	   ft_strncmp.c \
 	   ft_strncpy.c \
+	   ft_strlcpy.c \
 	   ft_strnequ.c \
 	   ft_strnew.c \
 	   ft_strnstr.c \
