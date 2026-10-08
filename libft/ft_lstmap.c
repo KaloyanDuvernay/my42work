@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 23:13:10 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/08 15:28:47 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 16:05:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		ft_lstadd_back(&new_list, new_node);
-		lst = ft_lstgetnextnode(lst);
+		lst = lst->next;
 	}
 	return (new_list);
 }
