@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 14:43:25 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 14:53:03 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 12:30:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
-	size_t	length;
+	size_t			i;
+	unsigned char	target;
 
-	str = (char *) s;
-	length = ft_strlen(s);
-	str += length;
-	length++;
-	while (length--)
+	target = (unsigned char)c;
+	i = ft_strlen(s) + 1;
+	while (i > 0)
 	{
-		if (*str == c)
-			return (str);
-		str--;
+		i--;
+		if ((unsigned char)s[i] == target)
+			return ((char *)&s[i]);
 	}
 	return (NULL);
 }
