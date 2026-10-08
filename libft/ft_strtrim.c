@@ -6,41 +6,33 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 19:58:34 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 22:21:56 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 12:35:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_iswhitespacehelper(char c)
+static int	ft_in_set(char c, char const *set)
 {
-	return (c == ' ' || c == '\n' || c == '\t');
+	while (*set != '\0')
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
+	return (0);
 }
 
-char	*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	len;
-	int		start_index;
-	int		end_index;
-	int		to_be_trimmed;
+	size_t	start;
+	size_t	end;
 
-	to_be_trimmed = 0;
-	len = ft_strlen(s);
-	start_index = 0;
-	end_index = len - 1;
-	while (ft_iswhitespacehelper(s[start_index]))
-	{
-		to_be_trimmed = 1;
-		start_index++;
-	}
-	while (ft_iswhitespacehelper(s[end_index]) && end_index >= 0)
-	{
-		to_be_trimmed = 1;
-		end_index--;
-	}
-	if (!to_be_trimmed)
-		return ((char *) s);
-	if (end_index >= start_index)
-		return (ft_strndup(&s[start_index], end_index - start_index + 1));
-	return (ft_strnew(0));
+	start = 0;
+	while (s1[start] != '\0' && ft_in_set(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_in_set(s1[end - 1], set))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }
