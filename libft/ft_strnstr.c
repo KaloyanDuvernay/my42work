@@ -6,31 +6,27 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 16:02:51 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 16:49:46 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 12:30:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *src, const char *filter, size_t size)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*src_ptr;
-	char	*filter_ptr;
-	size_t	length;
+	size_t	i;
+	size_t	needle_len;
 
-	if (!*filter)
-		return ((char *) src);
-	length = ft_strlen(filter);
-	if (!*src || size < length)
-		return (NULL);
-	src_ptr = (char *) src;
-	filter_ptr = (char *) filter;
-	while (*src_ptr && size >= length)
+	if (*needle == '\0')
+		return ((char *)haystack);
+	needle_len = ft_strlen(needle);
+	i = 0;
+	while (haystack[i] != '\0' && i < len)
 	{
-		if (ft_strncmp(src_ptr, filter_ptr, length) == 0)
-			return (src_ptr);
-		src_ptr++;
-		size--;
+		if (needle_len <= len - i
+			&& ft_strncmp(haystack + i, needle, needle_len) == 0)
+			return ((char *)(haystack + i));
+		i++;
 	}
 	return (NULL);
 }
