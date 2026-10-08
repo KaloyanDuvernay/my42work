@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/26 22:33:29 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/08 13:26:43 by kaloyanduve      ###   ########.fr       */
+/*   Created: 2026/10/08 13:28:28 by kaloyanduve       #+#    #+#             */
+/*   Updated: 2026/10/08 13:41:03 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+unsigned int	ft_lstsize(t_list *lst)
 {
-	t_list	*new_node;
+	unsigned int	count;
 
-	new_node = malloc(sizeof(t_list));
-	if (new_node == NULL)
-		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	return (new_node);
+	if (lst == NULL)
+		return (0);
+	count = 1;
+	lst = ft_lstgetnextnode(lst);
+	while (lst != NULL)
+	{
+		count++;
+		lst = ft_lstgetnextnode(lst);
+	}
+	return (count);
 }

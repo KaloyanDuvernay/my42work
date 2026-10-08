@@ -6,24 +6,17 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 23:13:10 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 23:51:11 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 15:26:11 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*current_node;
-
-	current_node = lst;
-	if (current_node != NULL)
-		f(current_node);
-	else
-		return ;
-	while (ft_lstgetnextnode(current_node))
+	while (lst != NULL)
 	{
-		current_node = ft_lstgetnextnode(current_node);
-		f(current_node);
+		f(lst->content);
+		lst = ft_lstgetnextnode(lst);
 	}
 }

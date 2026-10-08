@@ -6,7 +6,7 @@
 #    By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/25 16:58:09 by kaloyanduve       #+#    #+#              #
-#    Updated: 2026/10/07 22:17:08 by kaloyanduve      ###   ########.fr        #
+#    Updated: 2026/10/08 13:42:03 by kaloyanduve      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS = ft_atoi.c \
 	   ft_isupper.c \
 	   ft_itoa.c \
 	   ft_memalloc.c \
+	   ft_calloc.c \
 	   ft_memccpy.c \
 	   ft_memchr.c \
 	   ft_memcmp.c \
@@ -82,6 +83,7 @@ SRCS = ft_atoi.c \
 	   ft_lstgetnextnode.c \
 	   ft_lstiter.c \
 	   ft_lstmap.c \
+	   ft_lstsize.c
 	   
 
 OBJS = $(SRCS:.c=.o)
