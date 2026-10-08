@@ -76,7 +76,7 @@ SRCS = ft_atoi.c \
 	   ft_strequ.c \
 	   ft_tolower.c \
 	   ft_toupper.c \
-	   ft_lstadd.c \
+	   ft_lstadd_front.c \
 	   ft_lstdel.c \
 	   ft_lstdelone.c \
 	   ft_lstgetnextnode.c \
