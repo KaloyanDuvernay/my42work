@@ -28,6 +28,8 @@ jobs:
         run: make -C libft fclean all
 
       - name: Tripouille libftTester
+        env:
+          TERM: xterm
         run: |
           git clone --depth 1 https://github.com/Tripouille/libftTester.git /tmp/libftTester
           make -C /tmp/libftTester m LIBFT_PATH="$GITHUB_WORKSPACE/libft"
