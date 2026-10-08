@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 13:34:08 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 14:40:00 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 15:45:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_toupper(int c)
 {
-	if (ft_islower(c))
-		return (c - 32);
+	if (c >= 'a' && c <= 'z')
+		return (c - ('a' - 'A'));
 	return (c);
 }

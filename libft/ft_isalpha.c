@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 12:55:27 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/07/26 13:26:27 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 15:45:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalpha(int c)
 {
-	return (ft_isupper(c) || ft_islower(c));
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
