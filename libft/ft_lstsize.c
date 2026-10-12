@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:28:28 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/08 13:41:03 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 16:05:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@ unsigned int	ft_lstsize(t_list *lst)
 {
 	unsigned int	count;
 
-	if (lst == NULL)
-		return (0);
-	count = 1;
-	lst = ft_lstgetnextnode(lst);
+	count = 0;
 	while (lst != NULL)
 	{
 		count++;
-		lst = ft_lstgetnextnode(lst);
+		lst = lst->next;
 	}
 	return (count);
 }

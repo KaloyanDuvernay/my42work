@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 17:06:55 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/08 15:45:00 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 16:05:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
-t_list			*ft_lstgetnextnode(t_list *node);
 
 #endif

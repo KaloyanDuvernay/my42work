@@ -6,7 +6,7 @@
 #    By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/25 16:58:09 by kaloyanduve       #+#    #+#              #
-#    Updated: 2026/10/08 15:45:00 by kaloyanduve      ###   ########.fr        #
+#    Updated: 2026/10/08 16:05:00 by kaloyanduve      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,7 @@ SRCS = ft_isalpha.c \
 	ft_lstdelone.c \
 	ft_lstclear.c \
 	ft_lstiter.c \
-	ft_lstmap.c \
-	ft_lstgetnextnode.c
+	ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
 

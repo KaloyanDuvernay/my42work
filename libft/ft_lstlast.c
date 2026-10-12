@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 13:44:53 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/08 15:45:00 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 16:05:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ t_list	*ft_lstlast(t_list *lst)
 	if (lst == NULL)
 		return (NULL);
 	while (lst->next != NULL)
-		lst = ft_lstgetnextnode(lst);
+		lst = lst->next;
 	return (lst);
 }
