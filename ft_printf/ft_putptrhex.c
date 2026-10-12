@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:08:05 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/13 00:02:37 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/13 00:20:24 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int ft_putptrhex(void *ptr)
 	uintptr_t address;
 	int count;
 
+	if (ptr == NULL)
+		return (ft_putstr_fd("(nil)", 1));
 	address = (uintptr_t) ptr;
 	count = ft_putstr_fd("0x", 1);
 	count += ft_puthexlower(address);
