@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:12:43 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/13 00:02:41 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/13 00:05:24 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int ft_putunbr(unsigned int u)
 	answer = malloc(sizeof(char) * (size + 1));
 	start = answer;
 	if (answer == NULL)
-		return;
+		return (0);
 	answer += size;
 	*answer = '\0';
 	while(size--)
