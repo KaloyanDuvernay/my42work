@@ -6,7 +6,7 @@
 #    By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/07/25 16:58:09 by kaloyanduve       #+#    #+#              #
-#    Updated: 2026/10/12 21:52:42 by kaloyanduve      ###   ########.fr        #
+#    Updated: 2026/10/13 00:10:00 by kaloyanduve      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ LIBFT_SRCS = $(wildcard $(LIBFT_DIR)/*.c) \
 			 $(LIBFT_DIR)/Makefile
 
 SRCS = ft_printf.c \
-	   ft_putstr.c \
-	   ft_putunsigned.c \
-	   ft_puthex.c \
-	   ft_putptr.c
+	   ft_putunbr.c \
+	   ft_puthexlower.c \
+	   ft_puthexupper.c \
+	   ft_putptrhex.c
 
 BONUS_SRCS = ft_flags_bonus.c \
 			 ft_width_bonus.c \
@@ -43,7 +43,7 @@ $(NAME): $(LIBFT) $(OBJS)
 $(LIBFT): $(LIBFT_SRCS)
 	$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: .bonus
