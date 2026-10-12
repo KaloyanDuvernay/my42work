@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:08:05 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/13 00:20:24 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/13 00:25:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int magnitude(uintptr_t u)
 	return (count);
 }
 
-static int ft_puthexlower(uintptr_t u)
+static int ft_putptrhex_digits(uintptr_t u)
 {
 	char *hexbase;
 	int size;
@@ -59,6 +59,6 @@ int ft_putptrhex(void *ptr)
 		return (ft_putstr_fd("(nil)", 1));
 	address = (uintptr_t) ptr;
 	count = ft_putstr_fd("0x", 1);
-	count += ft_puthexlower(address);
+	count += ft_putptrhex_digits(address);
 	return (count);
 }
