@@ -6,15 +6,15 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 22:03:40 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/12 23:02:59 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/13 00:20:00 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (*s != '\0')
