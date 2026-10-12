@@ -6,11 +6,11 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 20:45:25 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/12 23:45:15 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/13 00:02:10 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
 int is_double_percent(const char *str_pointer)
 {
@@ -34,23 +34,20 @@ int manage_conversion(const char *str_pointer, va_list args)
 {
 	int count;
 
-	count == 0;
+	count = 0;
 	str_pointer++;
 	if (*str_pointer == 'd' || *str_pointer == 'i')
 		count += ft_putnbr_fd(va_arg(args, int), 1);
 	else if (*str_pointer == 'c')
-		count += ft_putchar_fd(va_arg(args, char), 1);
+		count += ft_putchar_fd(va_arg(args, int), 1);
 	else if (*str_pointer == 's')
 		count += ft_putstr_fd(va_arg(args, char *), 1);
 	else if (*str_pointer == 'u')
-		count += ft_putnbr_fd(va_arg(args, int), 1);
-	//TODO
+		count += ft_putunbr_fd(va_arg(args, unsigned int), 1);
 	else if (*str_pointer == 'x')
-		count += ft_puthexlower_fd(va_arg(args, unsigned int), 1);
-	//TODO
+		count += ft_puthexlower(va_arg(args, unsigned int), 1);
 	else if (*str_pointer == 'X')
-		count += ft_puthexupper_fd(va_arg(args, unsigned int), 1);
-	//TODO
+		count += ft_puthexupper(va_arg(args, unsigned int), 1);
 	else if (*str_pointer == 'p')
 		count += ft_putptrhex(va_arg(args, void *));
 	return (count);

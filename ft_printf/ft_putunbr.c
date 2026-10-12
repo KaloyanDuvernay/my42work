@@ -6,11 +6,11 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:12:43 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/12 23:42:45 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/13 00:02:41 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
 static int magnitude(unsigned int u)
 {
@@ -26,7 +26,7 @@ static int magnitude(unsigned int u)
 }
 
 
-void ft_putunbr(unsigned int u)
+int ft_putunbr(unsigned int u)
 {
 	int size;
 	int size_mem;

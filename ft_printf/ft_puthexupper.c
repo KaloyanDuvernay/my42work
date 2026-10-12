@@ -6,11 +6,11 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 23:42:58 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/12 23:43:12 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/13 00:02:27 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
 static int magnitude(unsigned int u)
 {
