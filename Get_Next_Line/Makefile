@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/10/17 14:23:58 by kaloyanduve       #+#    #+#              #
-#    Updated: 2026/10/17 14:23:59 by kaloyanduve      ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = get_next_line.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -17,31 +5,23 @@ AR = ar
 ARFLAGS = rcs
 RM = rm -f
 
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
-SRCS = get_next_line.c
+SRCS = get_next_line.c get_next_line_utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) libft_build
-	cp $(LIBFT) $(NAME)
+$(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-libft_build:
-	$(MAKE) -C $(LIBFT_DIR)
-
-%.o: %.c get_next_line.h $(LIBFT_DIR)/libft.h
+%.o: %.c get_next_line.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft_build
+.PHONY: all clean fclean re
