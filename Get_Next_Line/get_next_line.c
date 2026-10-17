@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 16:48:16 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/17 16:39:42 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/17 17:29:05 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ char *get_next_line(int fd)
 		return(ft_strextractleft(stash, new_stash_origin, BUFFER_SIZE));
 	while (read(fd, buffer, BUFFER_SIZE) > 0)
 	{
-		
+		new_stash_origin = buffer_has_new_line(buffer, BUFFER_SIZE);
+		while (!new_stash_origin)
+			return;
 	}
 	return (result_line);
 }
