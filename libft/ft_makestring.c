@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+// Note: Designed to convert bytes returned by read() into a C string.
+// A positive read count copies that many bytes and adds a null terminator.
+// A count of 0 (EOF) returns an allocated empty string ("").
+// A negative count (read error) returns NULL; malloc failure also returns NULL.
+// The caller owns the returned string and must free it.
+
 char	*ft_makestring(const char *buffer, ssize_t bytes_read)
 {
 	char	*result;
