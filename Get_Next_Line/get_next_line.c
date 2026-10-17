@@ -47,6 +47,26 @@ char	*ft_strappend_freefirst(char *l_string, const char *r_string)
 	return (result);
 }
 
+char	*ft_makestring(const char *buffer, ssize_t bytes_read)
+{
+	char	*result;
+	size_t	i;
+
+	if (bytes_read < 0 || (!buffer && bytes_read > 0))
+		return (NULL);
+	result = malloc((size_t)bytes_read + 1);
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < (size_t)bytes_read)
+	{
+		result[i] = buffer[i];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
+}
+
 char *get_next_line(int fd)
 {
 	char		*result_line;
