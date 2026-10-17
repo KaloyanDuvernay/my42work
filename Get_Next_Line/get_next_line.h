@@ -22,6 +22,7 @@
 
 
 char	*get_next_line(int fd);
+char	*extract_and_update_stash(char *line, char *buffer, char *stash);
 char	*ft_makestring(const char *buffer, ssize_t bytes_read);
 char	*ft_strappend_freefirst(char *s1, const char *s2);
 char	*buffer_has_new_line(char *stash, int buff_size);
