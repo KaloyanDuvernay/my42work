@@ -6,13 +6,13 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 16:48:16 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/17 17:29:05 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/17 18:33:57 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static size_t	append_strlen(const char *s)
+static size_t	this_strlen(const char *s)
 {
 	size_t	i;
 
@@ -22,28 +22,28 @@ static size_t	append_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strappend_freefirst(char *s1, const char *s2)
+char	*ft_strappend_freefirst(char *l_string, const char *r_string)
 {
 	char	*result;
 	size_t	i;
 	size_t	j;
 
-	if (!s2)
+	if (!r_string)
 		return (NULL);
-	result = malloc(append_strlen(s1) + append_strlen(s2) + 1);
+	result = malloc(this_strlen(l_string) + this_strlen(r_string) + 1);
 	if (!result)
 		return (NULL);
 	i = 0;
-	while (s1 && s1[i])
+	while (l_string && l_string[i])
 	{
-		result[i] = s1[i];
+		result[i] = l_string[i];
 		i++;
 	}
 	j = 0;
-	while (s2[j])
-		result[i++] = s2[j++];
+	while (r_string[j])
+		result[i++] = r_string[j++];
 	result[i] = '\0';
-	free(s1);
+	free(l_string);
 	return (result);
 }
 
