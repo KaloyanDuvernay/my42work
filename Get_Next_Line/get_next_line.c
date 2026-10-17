@@ -12,7 +12,17 @@
 
 #include "get_next_line.h"
 
-static char	*ft_strappend_freefirst(char *s1, const char *s2)
+static size_t	append_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s && s[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strappend_freefirst(char *s1, const char *s2)
 {
 	char	*result;
 	size_t	i;
@@ -20,25 +30,19 @@ static char	*ft_strappend_freefirst(char *s1, const char *s2)
 
 	if (!s2)
 		return (NULL);
-	i = 0;
-	while (s1 && s1[i])
-		i++;
-	j = 0;
-	while (s2[j])
-		j++;
-	result = malloc(i + j + 1);
+	result = malloc(append_strlen(s1) + append_strlen(s2) + 1);
 	if (!result)
 		return (NULL);
-	j = 0;
-	while (j < i)
-	{
-		result[j] = s1[j];
-		j++;
-	}
 	i = 0;
-	while (s2[i])
-		result[j++] = s2[i++];
-	result[j] = '\0';
+	while (s1 && s1[i])
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+		result[i++] = s2[j++];
+	result[i] = '\0';
 	free(s1);
 	return (result);
 }
