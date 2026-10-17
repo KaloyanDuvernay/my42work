@@ -30,7 +30,7 @@ int	init_stash(char **stash)
 	return (1);
 }
 
-char	*stash_has_new_line(char *stash, int buff_size)
+char	*buffer_has_new_line(char *stash, int buff_size)
 {
 	int	count;
 
