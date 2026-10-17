@@ -69,23 +69,23 @@ char	*ft_makestring(const char *buffer, ssize_t bytes_read)
 
 char	*extract_and_update_stash(char *line, char *buffer, char *stash)
 {
-	char	*newline;
+	char	*new_line_cursor;
 	size_t	i;
 
 	line = ft_strappend_freefirst(line, buffer);
 	if (!line)
 		return (NULL);
-	newline = buffer_has_new_line(line, this_strlen(line));
-	if (!newline)
+	new_line_cursor = buffer_has_new_line(line, this_strlen(line));
+	if (!new_line_cursor)
 		return (line);
 	i = 0;
-	while (newline[i])
+	while (new_line_cursor[i])
 	{
-		stash[i] = newline[i];
+		stash[i] = new_line_cursor[i];
 		i++;
 	}
 	stash[i] = '\0';
-	*newline = '\0';
+	*new_line_cursor = '\0';
 	return (line);
 }
 
