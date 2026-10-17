@@ -22,7 +22,7 @@
 
 
 char	*get_next_line(int fd);
-char	*stash_has_new_line(char *stash, int buff_size);
+char	*buffer_has_new_line(char *stash, int buff_size);
 char	*ft_strextractleft(char *origin, char *new_origin, int buff_size);
 void	clear_stash(char *stash, int buff_size);
 int		init_stash(char **stash);
