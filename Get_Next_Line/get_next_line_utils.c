@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 16:48:11 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/17 17:07:00 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/17 18:53:40 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	clear_stash(char *stash, int buff_size)
 
 int	init_stash(char **stash)
 {
-	*stash = malloc(BUFFER_SIZE);
+	*stash = malloc(BUFFER_SIZE + 1);
 	if (!*stash)
 		return (0);
-	clear_stash(*stash, BUFFER_SIZE);
+	clear_stash(*stash, BUFFER_SIZE + 1);
 	return (1);
 }
 

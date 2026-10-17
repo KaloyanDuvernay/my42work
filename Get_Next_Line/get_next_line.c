@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 16:48:16 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/17 18:33:57 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/17 19:03:38 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,13 @@ char	*ft_makestring(const char *buffer, ssize_t bytes_read)
 	return (result);
 }
 
+char	*extract_and_update_stash
+
 char *get_next_line(int fd)
 {
 	char		*result_line;
 	char		*buffer;
-	char		*new_stash_origin;
+	char		*last_read_str;
 	static char	*stash;
 
 	result_line = NULL;
@@ -80,14 +82,16 @@ char *get_next_line(int fd)
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
 	if (buffer == NULL)
 		return (NULL);
-	new_stash_origin = buffer_has_new_line(stash, BUFFER_SIZE);
-	if (new_stash_origin)
-		return(ft_strextractleft(stash, new_stash_origin, BUFFER_SIZE));
-	while (read(fd, buffer, BUFFER_SIZE) > 0)
+	if (buffer_has_new_line(stash, BUFFER_SIZE))
+		return(ft_strextractleft(stash, buffer_has_new_line(stash, BUFFER_SIZE), BUFFER_SIZE));
+	last_read_str = ft_makestring(buffer, read(fd, buffer, BUFFER_SIZE));
+	result_line = ft_strappend_freefirst(stash, last_read_str);
+	while (last_read_str && last_read_str != "")
 	{
-		new_stash_origin = buffer_has_new_line(buffer, BUFFER_SIZE);
-		while (!new_stash_origin)
-			return;
+		if (buffer_has_new_line(buffer, BUFFER_SIZE))
+		{
+			result_line = ft_strappend_freefirst(result_line, last_read_str);
+		}
 	}
 	return (result_line);
 }
