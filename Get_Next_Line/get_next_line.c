@@ -12,6 +12,37 @@
 
 #include "get_next_line.h"
 
+static char	*ft_strappend_freefirst(char *s1, const char *s2)
+{
+	char	*result;
+	size_t	i;
+	size_t	j;
+
+	if (!s2)
+		return (NULL);
+	i = 0;
+	while (s1 && s1[i])
+		i++;
+	j = 0;
+	while (s2[j])
+		j++;
+	result = malloc(i + j + 1);
+	if (!result)
+		return (NULL);
+	j = 0;
+	while (j < i)
+	{
+		result[j] = s1[j];
+		j++;
+	}
+	i = 0;
+	while (s2[i])
+		result[j++] = s2[i++];
+	result[j] = '\0';
+	free(s1);
+	return (result);
+}
+
 char *get_next_line(int fd)
 {
 	char		*result_line;
