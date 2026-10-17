@@ -25,6 +25,12 @@ char	*stash_has_new_line(char *stash, int buff_size)
 	return (NULL);
 }
 
+static int	init_stash(char **stash)
+{
+	*stash = malloc(BUFFER_SIZE);
+	return (*stash != NULL);
+}
+
 char *get_next_line(int fd)
 {
 	char		*result_line;
@@ -33,12 +39,8 @@ char *get_next_line(int fd)
 	ssize_t		read_bytes;
 	static char	*stash;
 
-	if (stash == NULL)
-	{
-		stash = malloc(sizeof(char) * BUFFER_SIZE);
-		if (stash == NULL)
-			return (NULL);
-	}
+	if (!(stash || init_stash(&stash)))
+		return (NULL);
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
 	if (buffer == NULL)
 		return (NULL);
