@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 16:48:16 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/17 14:30:14 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/17 15:01:41 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char *get_next_line(int fd)
 {
 	char		*result_line;
 	char		*buffer;
+	char		*new_stash_origin;
 	static char	*stash;
 
 	if (stash == NULL)
@@ -38,6 +39,12 @@ char *get_next_line(int fd)
 			return (NULL);
 	}
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
+	if (buffer == NULL)
+		return (NULL);
+	new_stash_origin = stash_has_new_line(stash, BUFFER_SIZE);
+	if (new_stash_origin)
+		return(ft_strextractleft(stash, new_stash_origin, BUFFER_SIZE));
+	while()
 	stash = read(fd, buffer, BUFFER_SIZE);
 	return (result_line);
 }
