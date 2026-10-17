@@ -25,7 +25,7 @@ char *get_next_line(int fd)
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
 	if (buffer == NULL)
 		return (NULL);
-	new_stash_origin = stash_has_new_line(stash, BUFFER_SIZE);
+	new_stash_origin = buffer_has_new_line(stash, BUFFER_SIZE);
 	if (new_stash_origin)
 		return(ft_strextractleft(stash, new_stash_origin, BUFFER_SIZE));
 	while (read(fd, buffer, BUFFER_SIZE) > 0)
