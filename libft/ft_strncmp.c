@@ -6,11 +6,13 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 15:11:22 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/08 12:30:00 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/08 17:13:24 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "string.h"
+#include "stdio.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -27,3 +29,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
+
+// int main()
+// {
+// 	printf("%d\n", strncmp("\200", "\0", 1));
+// 	printf("%d\n", ft_strncmp("\200", "\0", 1));
+// }
