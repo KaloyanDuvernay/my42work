@@ -6,13 +6,13 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 16:48:16 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/17 13:22:43 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/17 14:30:14 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	stash_has_new_line(char * stash, int buff_size)
+char	*stash_has_new_line(char *stash, int buff_size)
 {
 	int count;
 
@@ -20,9 +20,9 @@ int	stash_has_new_line(char * stash, int buff_size)
 	while(count < buff_size)
 	{
 		if (stash[count++] == '\n')
-			return (1);
+			return (&stash[count]);
 	}
-	return (0);
+	return (NULL);
 }
 
 char *get_next_line(int fd)
@@ -31,7 +31,13 @@ char *get_next_line(int fd)
 	char		*buffer;
 	static char	*stash;
 
+	if (stash == NULL)
+	{
+		stash = malloc(sizeof(char) * BUFFER_SIZE);
+		if (stash == NULL)
+			return (NULL);
+	}
 	buffer = malloc(sizeof(char) * BUFFER_SIZE);
-	read(fd, buffer, BUFFER_SIZE);
+	stash = read(fd, buffer, BUFFER_SIZE);
 	return (result_line);
 }
