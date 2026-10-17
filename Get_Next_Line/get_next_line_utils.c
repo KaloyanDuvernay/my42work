@@ -43,11 +43,23 @@ char	*stash_has_new_line(char *stash, int buff_size)
 	return (NULL);
 }
 
+static void	shift_stash(char *origin, int offset, int size)
+{
+	int	i;
+
+	i = 0;
+	while (offset + i < size)
+	{
+		origin[i] = origin[offset + i];
+		i++;
+	}
+	clear_stash(origin + i, offset);
+}
+
 char	*ft_strextractleft(char *origin, char *new_origin, int buff_size)
 {
 	char	*extracted;
 	int		i;
-	int		j;
 
 	if (!origin || !new_origin || buff_size <= 0)
 		return (NULL);
@@ -59,17 +71,13 @@ char	*ft_strextractleft(char *origin, char *new_origin, int buff_size)
 	extracted = malloc((size_t)i + 1);
 	if (!extracted)
 		return (NULL);
-	j = -1;
-	while (++j < i)
-		extracted[j] = origin[j];
-	extracted[i] = '\0';
-	j = 0;
-	while (i + j < buff_size)
+	i = 0;
+	while (origin + i < new_origin)
 	{
-		origin[j] = origin[i + j];
-		j++;
+		extracted[i] = origin[i];
+		i++;
 	}
-	while (j < buff_size)
-		origin[j++] = '\0';
+	extracted[i] = '\0';
+	shift_stash(origin, i, buff_size);
 	return (extracted);
 }
