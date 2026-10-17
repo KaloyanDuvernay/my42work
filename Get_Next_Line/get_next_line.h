@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 16:48:19 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/17 13:30:15 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/10/17 16:55:17 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 69420
 # endif
 
 # include <unistd.h>  // read
