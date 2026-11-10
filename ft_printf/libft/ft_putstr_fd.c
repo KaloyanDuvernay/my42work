@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 22:03:40 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/13 00:20:00 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/11/10 16:55:55 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ int	ft_putstr_fd(char *s, int fd)
 	count = 0;
 	while (*s != '\0')
 	{
-		ft_putchar_fd(*s, fd);
+		count += ft_putchar_fd(*s, fd);
 		s++;
-		count++;
 	}
 	return (count);
 }

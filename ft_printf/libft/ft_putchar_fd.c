@@ -6,7 +6,7 @@
 /*   By: kaloyanduvernay <kaloyanduvernay@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 22:02:08 by kaloyanduve       #+#    #+#             */
-/*   Updated: 2026/10/13 00:20:00 by kaloyanduve      ###   ########.fr       */
+/*   Updated: 2026/11/10 16:55:09 by kaloyanduve      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
-	return (1);
+	return(write(fd, &c, 1));
 }
