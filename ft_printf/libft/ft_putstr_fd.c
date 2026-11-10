@@ -15,11 +15,17 @@
 int	ft_putstr_fd(char *s, int fd)
 {
 	int	count;
+	int	temp;
 
+	if (s == NULL)
+		s = "(null)";
 	count = 0;
 	while (*s != '\0')
 	{
-		count += ft_putchar_fd(*s, fd);
+		temp = ft_putchar_fd(*s, fd);
+		if (temp < 0)
+			return (-1);
+		count += temp;
 		s++;
 	}
 	return (count);

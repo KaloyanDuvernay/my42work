@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-int is_double_percent(const char *str_pointer)
+int	is_double_percent(const char *str_pointer)
 {
 	if (*str_pointer == '%')
 		return (*++str_pointer == '%');
 	return (0);
 }
 
-int is_conversion(const char *str_pointer)
+int	is_conversion(const char *str_pointer)
 {
 	str_pointer++;
 	return (*str_pointer == 'c' || *str_pointer == 's'
@@ -30,9 +30,9 @@ int is_conversion(const char *str_pointer)
 
 // the pointer is currently on '%'; check next character:
 // the function manages cspdiuxX conversions.
-int manage_conversion(const char *str_pointer, va_list *args)
+int	manage_conversion(const char *str_pointer, va_list *args)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	str_pointer++;
@@ -53,29 +53,42 @@ int manage_conversion(const char *str_pointer, va_list *args)
 	return (count);
 }
 
-int ft_printf(const char *input_str, ...)
+static int	print_format(const char *str, va_list *args)
 {
-	va_list args;
-	int count;
+	int	count;
+	int	temp;
 
 	count = 0;
-	va_start(args, input_str);
-	while (*input_str)
+	while (*str)
 	{
-		if (*input_str != '%')
-			count += ft_putchar_fd(*input_str, 1);
-		else if (is_double_percent(input_str))
+		temp = 0;
+		if (*str != '%')
+			temp = ft_putchar_fd(*str, 1);
+		else if (is_double_percent(str))
 		{
-			count += ft_putchar_fd('%', 1);
-			input_str ++;
+			temp = ft_putchar_fd('%', 1);
+			str++;
 		}
-		else if (is_conversion(input_str))
+		else if (is_conversion(str))
 		{
-			count += manage_conversion(input_str, &args);
-			input_str++;
+			temp = manage_conversion(str, args);
+			str++;
 		}
-		input_str++;
+		if (temp < 0)
+			return (-1);
+		count += temp;
+		str++;
 	}
+	return (count);
+}
+
+int	ft_printf(const char *input_str, ...)
+{
+	va_list	args;
+	int		count;
+
+	va_start(args, input_str);
+	count = print_format(input_str, &args);
 	va_end(args);
 	return (count);
 }

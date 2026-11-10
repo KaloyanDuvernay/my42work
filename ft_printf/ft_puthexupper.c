@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-static int magnitude(unsigned int u)
+static int	magnitude(unsigned int u)
 {
-	int count;
+	int	count;
 
 	count = 1;
-	while(u >= 16)
+	while (u >= 16)
 	{
 		u /= 16;
 		count++;
@@ -25,21 +25,21 @@ static int magnitude(unsigned int u)
 	return (count);
 }
 
-int ft_puthexupper(unsigned int u)
+int	ft_puthexupper(unsigned int u)
 {
-	char *hexbase;
-	int size;
-	char *answer;
-	int count;
+	char	*hexbase;
+	int		size;
+	char	*answer;
+	int		count;
 
 	hexbase = "0123456789ABCDEF";
 	size = magnitude(u);
 	answer = malloc(sizeof(char) * (size + 1));
 	if (answer == NULL)
-		return (0);
+		return (-1);
 	answer += size;
 	*answer = '\0';
-	while(size--)
+	while (size--)
 	{
 		*--answer = hexbase[u % 16];
 		u /= 16;

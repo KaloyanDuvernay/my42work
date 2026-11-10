@@ -15,14 +15,12 @@
 int	ft_putnbr_fd(int n, int fd)
 {
 	char	*nb_str;
-	int len;
+	int		len;
 
 	nb_str = ft_itoa(n);
-	len = ft_strlen(nb_str);
-	if (nb_str != NULL)
-	{
-		ft_putstr_fd(nb_str, fd);
-		free(nb_str);
-	}
+	if (nb_str == NULL)
+		return (-1);
+	len = ft_putstr_fd(nb_str, fd);
+	free(nb_str);
 	return (len);
 }
